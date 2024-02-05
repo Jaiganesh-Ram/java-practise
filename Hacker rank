@@ -1,0 +1,31 @@
+import java.util.Arrays;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        // Sample Input
+        int[] numbers = {9, 8, 3, 85};
+
+        // Sample Output
+        String result = findLargestEvenOdd(numbers);
+        System.out.println(result);
+    }
+
+    // Static method to find the largest even and odd numbers
+    public static String findLargestEvenOdd(int[] numbers) {
+        int largestEven = Integer.MIN_VALUE;
+        int largestOdd = Integer.MIN_VALUE;
+
+        for (int number : numbers) {
+            if (number % 2 == 0 && number > largestEven) {
+                largestEven = number;
+            } else if (number % 2 != 0 && number > largestOdd) {
+                largestOdd = number;
+            }
+        }
+
+        // Construct and return the result string
+        return "Largest even:" + (largestEven == Integer.MIN_VALUE ? "No even number" : largestEven) +
+               "\nLargest odd:" + (largestOdd == Integer.MIN_VALUE ? "No odd number" : largestOdd);
+    }
+}
